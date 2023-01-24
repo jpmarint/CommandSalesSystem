@@ -13,13 +13,13 @@ def _initialize_clients_from_storage():
             clients.append(row)
 
 def _save_clients_to_storage():
-    tmp_table_name = '{}.tmp'.format(CLIENT_TABLE)
-    with open(tmp_table_name, mode='w') as f:
-        writer = csv.DictWriter(f, fieldnames=CLIENT_SCHEMA)
-        writer.writerows(clients)
+	tmp_table_name = '{}.tmp'.format(CLIENT_TABLE)
+	with open(tmp_table_name, mode='w') as f:
+		writer = csv.DictWriter(f, fieldnames=CLIENT_SCHEMA)
+		writer.writerows(clients)
 
-        os.remove(CLIENT_TABLE)
-        os.rename(tmp_table_name, CLIENT_TABLE)
+		os.remove(CLIENT_TABLE)
+	os.rename(tmp_table_name, CLIENT_TABLE)
 
 
 def create_client(client):
