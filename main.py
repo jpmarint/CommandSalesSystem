@@ -29,6 +29,15 @@ def delete_client(client_name):
     else:
         print('Client is not in clients list')
 
+def search_client(client_name) -> bool:
+    clients_list = clients.split(',')
+
+    for client in clients_list:
+        if client != client_name:
+            continue
+        else:
+            return True
+
 def _add_comma():
     global clients
     clients += ','
@@ -47,18 +56,29 @@ def _get_client_name():
 if __name__ == '__main__':
     _print_welcome()
     command = input().upper()
-    if command == "C":
-        clientName = _get_client_name()
-        create_client(clientName)
-        list_clients()
-    elif command == "D":
-        clientName = _get_client_name()
-        delete_client(clientName)
-        list_clients()
-    elif command == "U":
-        clientName = _get_client_name()
-        upadatedClientName = input("What is the updated client name? ")
-        update_client(clientName, upadatedClientName)
-        list_clients()
-    else:
-        print('Invalid command')
+    
+    match command:
+        case "C":
+            clientName = _get_client_name()
+            create_client(clientName)
+            list_clients()
+        case "D":
+            clientName = _get_client_name()
+            delete_client(clientName)
+            list_clients()
+        case "U":
+            clientName = _get_client_name()
+            upadatedClientName = input("What is the updated client name? ")
+            update_client(clientName, upadatedClientName)
+            list_clients()
+        case "S":
+            clientName = _get_client_name()
+            found = search_client(clientName)
+            if found:
+                print("client is in the client's list")
+            else:
+                print(f"The client: {clientName} is not in our client's list")
+        case _:
+            print('Invalid command')
+
+    
