@@ -6,7 +6,9 @@ setup(
     version='0.1',
     py_modules=['jp'],
     install_requires=[
-        'Click',
+        'click',
+        'tabulate',
+        'uuid'
     ],
     entry_points='''
         [console_scripts]
