@@ -1,4 +1,6 @@
 import click
+from tabulate import tabulate
+
 from clients.services import ClientService
 from clients.models import Client
 
@@ -42,10 +44,22 @@ def create(ctx, name, company, email, position):
 @clients.command()
 @click.pass_context
 def list(ctx):
-    """
-    List all clients
-    """
-    pass
+    """List all clients"""
+    client_service = ClientService(ctx.obj['clients_table'])
+    clients_list = client_service.list_clients()
+
+    headers = [field.capitalize() for field in Client.schema()]
+    table = []
+
+    for client in clients_list:
+        table.append(
+            [client['name'],
+             client['company'],
+             client['email'],
+             client['position'],
+             client['uid']])
+
+    print(tabulate(table, headers))
 
 
 @clients.command()
