@@ -1,0 +1,7 @@
+setup.py
+jp.egg-info/PKG-INFO
+jp.egg-info/SOURCES.txt
+jp.egg-info/dependency_links.txt
+jp.egg-info/entry_points.txt
+jp.egg-info/requires.txt
+jp.egg-info/top_level.txt

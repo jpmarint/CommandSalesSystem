@@ -43,3 +43,6 @@ def delete(ctx, client_uid):
     Deletes a client
     """
     pass
+
+
+all = clients
