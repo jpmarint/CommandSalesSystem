@@ -34,8 +34,8 @@ cd .\MainApp\
 ## Commands
 ```
 jp clients --help (To see all the commands)
-jp clients create       (Creates a cliente)
+jp clients create       (Creates a client)
 jp clients delete [uid] (Deletes a client)
-jp clients list         (shows a table)
-jp clients update [uid] (update info of a cliente)
+jp clients list         (Shows a table)
+jp clients update [uid] (Update client's info)
 ```
